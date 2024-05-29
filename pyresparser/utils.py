@@ -15,8 +15,9 @@ from pdfminer.pdfinterp import PDFResourceManager
 from pdfminer.layout import LAParams
 from pdfminer.pdfpage import PDFPage
 from pdfminer.pdfparser import PDFSyntaxError
+from pyresparser import constants
 from nltk.stem import WordNetLemmatizer
-from nltk.corpus import stopwords
+
 
 
 def extract_text_from_pdf(pdf_path):
@@ -456,7 +457,7 @@ def extract_experience(resume_text):
     :return: list of experience
     '''
     wordnet_lemmatizer = WordNetLemmatizer()
-    stop_words = set(stopwords.words('english'))
+    stop_words = constants.STOPWORDS
 
     # word tokenization
     word_tokens = nltk.word_tokenize(resume_text)

@@ -1,4 +1,7 @@
-from nltk.corpus import stopwords
+import spacy
+from spacy.lang.en import stop_words
+
+nlp = spacy.load('en_core_web_sm')
 
 # Omkar Pathak
 NAME_PATTERN = [{'POS': 'PROPN'}, {'POS': 'PROPN'}]
@@ -22,7 +25,7 @@ MONTHS_LONG = r'''(january)|(february)|(march)|(april)|(may)|(june)|(july)|
 MONTH = r'(' + MONTHS_SHORT + r'|' + MONTHS_LONG + r')'
 YEAR = r'(((20|19)(\d{2})))'
 
-STOPWORDS = set(stopwords.words('english'))
+STOPWORDS = stop_words.STOP_WORDS
 
 RESUME_SECTIONS_PROFESSIONAL = [
                     'experience',
